@@ -26,14 +26,17 @@
 /* Begin PBXBuildFile section */
 		7B7A34C820027B4700348DF4 /* KVObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7A34BF20027B4600348DF4 /* KVObserver.framework */; };
 		7B7A34D620027B6700348DF4 /* KVObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD034200274B9009BE667 /* KVObserverTests.swift */; };
-		7B7A34D720027B6C00348DF4 /* source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD01320026AF1009BE667 /* source.swift */; };
 		7B8BD02320026E8C009BE667 /* KVObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8BD01A20026E8C009BE667 /* KVObserver.framework */; };
 		7B8BD036200274B9009BE667 /* KVObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD034200274B9009BE667 /* KVObserverTests.swift */; };
-		7B8BD0372002752A009BE667 /* source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD01320026AF1009BE667 /* source.swift */; };
-		7BB52E4B20027A0E007CAD7B /* source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD01320026AF1009BE667 /* source.swift */; };
 		7BC696DE2002775C007BC3E9 /* KVObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC696D52002775C007BC3E9 /* KVObserver.framework */; };
 		7BC696EC200277AA007BC3E9 /* KVObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD034200274B9009BE667 /* KVObserverTests.swift */; };
-		7BC696ED200277AE007BC3E9 /* source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD01320026AF1009BE667 /* source.swift */; };
+		7BE819E9200DFBB200DCCD10 /* KVObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819E8200DFBB200DCCD10 /* KVObserver.swift */; };
+		7BE819EA200DFBB200DCCD10 /* KVObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819E8200DFBB200DCCD10 /* KVObserver.swift */; };
+		7BE819EB200DFBB200DCCD10 /* KVObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819E8200DFBB200DCCD10 /* KVObserver.swift */; };
+		7BE819EC200DFBB200DCCD10 /* KVObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819E8200DFBB200DCCD10 /* KVObserver.swift */; };
+		7BE819EE200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
+		7BE819EF200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
+		7BE819F0200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +98,6 @@
 		7B21BAD12003BF0600DFF758 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		7B7A34BF20027B4600348DF4 /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7A34C720027B4700348DF4 /* KVObserver-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KVObserver-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B8BD01320026AF1009BE667 /* source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = source.swift; sourceTree = "<group>"; };
 		7B8BD01A20026E8C009BE667 /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8BD01D20026E8C009BE667 /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
 		7B8BD02220026E8C009BE667 /* KVObserver-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KVObserver-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,8 @@
 		7BB52E43200279EA007CAD7B /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC696D52002775C007BC3E9 /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC696DD2002775C007BC3E9 /* KVObserver-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KVObserver-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BE819E8200DFBB200DCCD10 /* KVObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVObserver.swift; sourceTree = "<group>"; };
+		7BE819ED200E03A600DCCD10 /* ObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +206,7 @@
 		7B8BD01220026AF1009BE667 /* KVObserver */ = {
 			isa = PBXGroup;
 			children = (
-				7B8BD01320026AF1009BE667 /* source.swift */,
+				7BE819E8200DFBB200DCCD10 /* KVObserver.swift */,
 			);
 			path = KVObserver;
 			sourceTree = "<group>";
@@ -228,9 +232,18 @@
 		7B8BD033200274B9009BE667 /* KVObserverTests */ = {
 			isa = PBXGroup;
 			children = (
+				7BE819F1200E03B400DCCD10 /* Helpers */,
 				7B8BD034200274B9009BE667 /* KVObserverTests.swift */,
 			);
 			path = KVObserverTests;
+			sourceTree = "<group>";
+		};
+		7BE819F1200E03B400DCCD10 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7BE819ED200E03A600DCCD10 /* ObservedObject.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,7 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B7A34D720027B6C00348DF4 /* source.swift in Sources */,
+				7BE819EA200DFBB200DCCD10 /* KVObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE819F0200E03A600DCCD10 /* ObservedObject.swift in Sources */,
 				7B7A34D620027B6700348DF4 /* KVObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,7 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B8BD0372002752A009BE667 /* source.swift in Sources */,
+				7BE819E9200DFBB200DCCD10 /* KVObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE819EE200E03A600DCCD10 /* ObservedObject.swift in Sources */,
 				7B8BD036200274B9009BE667 /* KVObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BB52E4B20027A0E007CAD7B /* source.swift in Sources */,
+				7BE819EC200DFBB200DCCD10 /* KVObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +573,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC696ED200277AE007BC3E9 /* source.swift in Sources */,
+				7BE819EB200DFBB200DCCD10 /* KVObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE819EF200E03A600DCCD10 /* ObservedObject.swift in Sources */,
 				7BC696EC200277AA007BC3E9 /* KVObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,17 +5,29 @@ import XCTest
 
 class KVObserverTests: XCTestCase {
 	
-	func testExample() {
-		/* This is an example of a functional test case.
-		 * Use XCTAssert and related functions to verify your tests produce the
-		 * correct results. */
-		XCTAssertTrue(true)
+	func testSimpleDirectObservation() {
+		let kvObserver = KVObserver()
+		let observedObject = ObservedObject()
+		
+		var enteredObservedBlock = false
+		let observingId = kvObserver.observe(object: observedObject, keyPath: #keyPath(ObservedObject.observableProperty), kvoOptions: [], dispatchType: .direct){ _ in
+			enteredObservedBlock = true
+		}
+		
+		XCTAssertFalse(enteredObservedBlock)
+		observedObject.observableProperty += 1
+		XCTAssertTrue(enteredObservedBlock)
+		
+		enteredObservedBlock = false
+		kvObserver.stopObserving(id: observingId)
+		observedObject.observableProperty += 1
+		XCTAssertFalse(enteredObservedBlock)
 	}
 	
 	
 	/* Fill this array with all the tests to have Linux testing compatibility. */
 	static var allTests = [
-		("testExample", testExample),
+		("testSimpleDirectObservation", testSimpleDirectObservation),
 	]
 	
 }
