@@ -111,7 +111,7 @@ public final class KVObserver : NSObject {
 	public func stopObserving(id: ObservingId) {
 		let context = observingIdToContext[id]!
 		
-		context.observedObject?.removeObserver(self, forKeyPath: context.observedKeyPath, context: Unmanaged.passUnretained(context).toOpaque())
+		context.observedObject.removeObserver(self, forKeyPath: context.observedKeyPath, context: Unmanaged.passUnretained(context).toOpaque())
 		observingIdToContext.removeValue(forKey: id)
 	}
 	
@@ -124,7 +124,7 @@ public final class KVObserver : NSObject {
 	}
 	
 	public func stopObservingEverything() {
-		for (_, context) in observingIdToContext {context.observedObject?.removeObserver(self, forKeyPath: context.observedKeyPath, context: Unmanaged.passUnretained(context).toOpaque())}
+		for (_, context) in observingIdToContext {context.observedObject.removeObserver(self, forKeyPath: context.observedKeyPath, context: Unmanaged.passUnretained(context).toOpaque())}
 		observingIdToContext.removeAll()
 	}
 	
@@ -148,11 +148,10 @@ public final class KVObserver : NSObject {
 	private final class KVOContext : Equatable {
 		
 		static func ==(lhs: KVObserver.KVOContext, rhs: KVObserver.KVOContext) -> Bool {
-			guard let lobj = lhs.observedObject, let robj = rhs.observedObject else {return false}
-			return (Unmanaged.passUnretained(lobj).toOpaque() == Unmanaged.passUnretained(robj).toOpaque() && lhs.observedKeyPath == rhs.observedKeyPath)
+			return (Unmanaged.passUnretained(lhs.observedObject).toOpaque() == Unmanaged.passUnretained(rhs.observedObject).toOpaque() && lhs.observedKeyPath == rhs.observedKeyPath)
 		}
 		
-		weak var observedObject: NSObject?
+		unowned var observedObject: NSObject
 		let observedKeyPath: String
 		
 		private let inferredContext: NSManagedObjectContext?
