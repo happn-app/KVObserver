@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 	spec.name = "KVObserver"
-	spec.version = "0.9.0"
+	spec.version = "0.9.1"
 	spec.summary = "A safer KVO"
 	spec.homepage = "https://www.happn.com/"
 	spec.license = {type: 'TBD', file: 'License.txt'}
