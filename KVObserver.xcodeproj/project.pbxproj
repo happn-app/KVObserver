@@ -26,6 +26,9 @@
 /* Begin PBXBuildFile section */
 		7B7A34C820027B4700348DF4 /* KVObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7A34BF20027B4600348DF4 /* KVObserver.framework */; };
 		7B7A34D620027B6700348DF4 /* KVObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD034200274B9009BE667 /* KVObserverTests.swift */; };
+		7B8075362083D776002C68DB /* AutoObservedNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075352083D776002C68DB /* AutoObservedNSManagedObject.swift */; };
+		7B8075372083D776002C68DB /* AutoObservedNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075352083D776002C68DB /* AutoObservedNSManagedObject.swift */; };
+		7B8075382083D776002C68DB /* AutoObservedNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075352083D776002C68DB /* AutoObservedNSManagedObject.swift */; };
 		7B8BD02320026E8C009BE667 /* KVObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8BD01A20026E8C009BE667 /* KVObserver.framework */; };
 		7B8BD036200274B9009BE667 /* KVObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD034200274B9009BE667 /* KVObserverTests.swift */; };
 		7BC696DE2002775C007BC3E9 /* KVObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC696D52002775C007BC3E9 /* KVObserver.framework */; };
@@ -37,6 +40,9 @@
 		7BE819EE200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
 		7BE819EF200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
 		7BE819F0200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
+		7BFB493B2082390400B0FAF2 /* AutoObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */; };
+		7BFB493C2082390400B0FAF2 /* AutoObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */; };
+		7BFB493D2082390400B0FAF2 /* AutoObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +104,7 @@
 		7B21BAD12003BF0600DFF758 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		7B7A34BF20027B4600348DF4 /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7A34C720027B4700348DF4 /* KVObserver-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KVObserver-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8075352083D776002C68DB /* AutoObservedNSManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoObservedNSManagedObject.swift; sourceTree = "<group>"; };
 		7B8BD01A20026E8C009BE667 /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8BD01D20026E8C009BE667 /* Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Framework-Info.plist"; sourceTree = "<group>"; };
 		7B8BD02220026E8C009BE667 /* KVObserver-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KVObserver-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +116,7 @@
 		7BC696DD2002775C007BC3E9 /* KVObserver-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KVObserver-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE819E8200DFBB200DCCD10 /* KVObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVObserver.swift; sourceTree = "<group>"; };
 		7BE819ED200E03A600DCCD10 /* ObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObject.swift; sourceTree = "<group>"; };
+		7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoObservedObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				7BE819ED200E03A600DCCD10 /* ObservedObject.swift */,
+				7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */,
+				7B8075352083D776002C68DB /* AutoObservedNSManagedObject.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -542,7 +552,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8075382083D776002C68DB /* AutoObservedNSManagedObject.swift in Sources */,
 				7BE819F0200E03A600DCCD10 /* ObservedObject.swift in Sources */,
+				7BFB493D2082390400B0FAF2 /* AutoObservedObject.swift in Sources */,
 				7B7A34D620027B6700348DF4 /* KVObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,7 +571,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8075362083D776002C68DB /* AutoObservedNSManagedObject.swift in Sources */,
 				7BE819EE200E03A600DCCD10 /* ObservedObject.swift in Sources */,
+				7BFB493B2082390400B0FAF2 /* AutoObservedObject.swift in Sources */,
 				7B8BD036200274B9009BE667 /* KVObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,7 +598,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8075372083D776002C68DB /* AutoObservedNSManagedObject.swift in Sources */,
 				7BE819EF200E03A600DCCD10 /* ObservedObject.swift in Sources */,
+				7BFB493C2082390400B0FAF2 /* AutoObservedObject.swift in Sources */,
 				7BC696EC200277AA007BC3E9 /* KVObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

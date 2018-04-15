@@ -72,8 +72,8 @@ public final class KVObserver : NSObject {
 		stopObservingEverything()
 	}
 	
-	public func observe(object: NSObject, keyPath: String, kvoOptions: NSKeyValueObservingOptions, dispatchType: DispatchType, handler: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) -> ObservingId {
-		return observe(object: object, keyPath: keyPath, kvoOptions: kvoOptions, dispatchType: dispatchType, skipReRegistration: false, handler: handler)!
+	public func observe(object: NSObject, keyPath: String, kvoOptions: NSKeyValueObservingOptions, dispatchType: DispatchType, keepPointerToObjectInsteadOfWeakReference: Bool? = nil, handler: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) -> ObservingId {
+		return observe(object: object, keyPath: keyPath, kvoOptions: kvoOptions, dispatchType: dispatchType, skipReRegistration: false, keepPointerToObjectInsteadOfWeakReference: keepPointerToObjectInsteadOfWeakReference, handler: handler)!
 	}
 	
 	/** Will observe the given key path of the given object. When there is a
@@ -88,13 +88,22 @@ public final class KVObserver : NSObject {
 	Skip re-registration will not register for observation iff the given object/
 	key-path couple has already been registered for observation.
 	
+	The observed object is stored as a weak reference by default, except for
+	NSManagedObject instances, which are stored as an unmanaged pointer. You can
+	change this behaviour with keepPointerToObjectInsteadOfWeakReference (but you
+	really should not). See the `testCoreDataObservedObjectDealloc` test for more
+	information.
+	
 	- Important: Not thread-safe (or maybe it is, but untested).
 	
 	- Returns: An observing ID that can used to stop the observation, nil if skip
 	re-registration is true and registration was already setup for the given
 	object/key-path couple. */
-	public func observe(object: NSObject, keyPath: String, kvoOptions: NSKeyValueObservingOptions, dispatchType: DispatchType, skipReRegistration: Bool = false, handler: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) -> ObservingId? {
-		let context = KVOContext(object: object, keyPath: keyPath, dispatchType: dispatchType, willCallInitial: kvoOptions.contains(.initial), handler: handler)
+	public func observe(object: NSObject, keyPath: String, kvoOptions: NSKeyValueObservingOptions, dispatchType: DispatchType, skipReRegistration: Bool = false, keepPointerToObjectInsteadOfWeakReference: Bool? = nil, handler: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) -> ObservingId? {
+		let context = KVOContext(
+			object: object, storeAsPointer: keepPointerToObjectInsteadOfWeakReference ?? (object is NSManagedObject ? true : false),
+			keyPath: keyPath, dispatchType: dispatchType, willCallInitial: kvoOptions.contains(.initial), handler: handler
+		)
 		guard !skipReRegistration || !observingIdToContext.values.contains(context) else {return nil}
 		
 		object.addObserver(self, forKeyPath: keyPath, options: kvoOptions, context: Unmanaged.passUnretained(context).toOpaque())
@@ -148,19 +157,33 @@ public final class KVObserver : NSObject {
 	private final class KVOContext : Equatable {
 		
 		static func ==(lhs: KVObserver.KVOContext, rhs: KVObserver.KVOContext) -> Bool {
-			guard let lobj = lhs.observedObject, let robj = rhs.observedObject else {return false}
-			return (Unmanaged.passUnretained(lobj).toOpaque() == Unmanaged.passUnretained(robj).toOpaque() && lhs.observedKeyPath == rhs.observedKeyPath)
+			return (lhs.observedKeyPath == rhs.observedKeyPath && lhs.computedObservedObjectPtr == rhs.computedObservedObjectPtr)
 		}
 		
-		weak var observedObject: NSObject?
+		var observedObject: NSObject? {
+			if let o = observedObjectWeak {return o}
+			if let p = observedObjectPtr {return Unmanaged<NSObject>.fromOpaque(p).takeUnretainedValue()}
+			return nil
+		}
+		
+		private var computedObservedObjectPtr: UnsafeMutableRawPointer? {
+			if let o = observedObjectWeak {return Unmanaged.passUnretained(o).toOpaque()}
+			return observedObjectPtr
+		}
+		
 		let observedKeyPath: String
 		
-		private let inferredContext: NSManagedObjectContext?
-		
-		init(object: NSObject, keyPath: String, dispatchType dt: DispatchType, willCallInitial: Bool, handler h: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) {
+		init(object: NSObject, storeAsPointer: Bool, keyPath: String, dispatchType dt: DispatchType, willCallInitial: Bool, handler h: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) {
 			isInitialCall = willCallInitial
 			
-			observedObject = object
+			if storeAsPointer {
+				observedObjectPtr = Unmanaged.passUnretained(object).toOpaque()
+				observedObjectWeak = nil
+			} else {
+				observedObjectWeak = object
+				observedObjectPtr = nil
+			}
+			
 			observedKeyPath = keyPath
 			
 			dispatchType = dt
@@ -198,6 +221,13 @@ public final class KVObserver : NSObject {
 		}
 		
 		private var isInitialCall: Bool
+		
+		private let inferredContext: NSManagedObjectContext?
+		
+		/* An enum would be more beautiful, wouldn't you say? But we cannot store
+		 * (beautifully) a weak reference in an enum ;) */
+		private let observedObjectPtr: UnsafeMutableRawPointer?
+		private weak var observedObjectWeak: NSObject?
 		
 		private let dispatchType: DispatchType
 		private let handler: (_ change: [NSKeyValueChangeKey: Any]?) -> Void
