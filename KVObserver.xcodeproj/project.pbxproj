@@ -787,7 +787,6 @@
 				INFOPLIST_FILE = "Xcode Supporting Files/Framework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.happn.KVObserver-tvOS";
 				PRODUCT_NAME = KVObserver;
 				SDKROOT = appletvos;
@@ -813,7 +812,6 @@
 				INFOPLIST_FILE = "Xcode Supporting Files/Framework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.happn.KVObserver-tvOS";
 				PRODUCT_NAME = KVObserver;
 				SDKROOT = appletvos;
@@ -877,7 +875,6 @@
 				INFOPLIST_FILE = "Xcode Supporting Files/Framework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.happn.KVObserver-macOS";
 				PRODUCT_NAME = KVObserver;
 				SDKROOT = macosx;
@@ -905,7 +902,6 @@
 				INFOPLIST_FILE = "Xcode Supporting Files/Framework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.happn.KVObserver-macOS";
 				PRODUCT_NAME = KVObserver;
 				SDKROOT = macosx;
@@ -1016,7 +1012,6 @@
 				INFOPLIST_FILE = "Xcode Supporting Files/Framework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.happn.KVObserver-iOS";
 				PRODUCT_NAME = KVObserver;
 				SDKROOT = iphoneos;
@@ -1042,7 +1037,6 @@
 				INFOPLIST_FILE = "Xcode Supporting Files/Framework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.happn.KVObserver-iOS";
 				PRODUCT_NAME = KVObserver;
 				SDKROOT = iphoneos;
