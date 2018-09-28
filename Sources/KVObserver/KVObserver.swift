@@ -72,6 +72,7 @@ public final class KVObserver : NSObject {
 		stopObservingEverything()
 	}
 	
+	@discardableResult
 	public func observe(object: NSObject, keyPath: String, kvoOptions: NSKeyValueObservingOptions, dispatchType: DispatchType, keepPointerToObjectInsteadOfWeakReference: Bool? = nil, handler: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) -> ObservingId {
 		return observe(object: object, keyPath: keyPath, kvoOptions: kvoOptions, dispatchType: dispatchType, skipReRegistration: false, keepPointerToObjectInsteadOfWeakReference: keepPointerToObjectInsteadOfWeakReference, handler: handler)!
 	}
@@ -99,6 +100,7 @@ public final class KVObserver : NSObject {
 	- Returns: An observing ID that can used to stop the observation, nil if skip
 	re-registration is true and registration was already setup for the given
 	object/key-path couple. */
+	@discardableResult
 	public func observe(object: NSObject, keyPath: String, kvoOptions: NSKeyValueObservingOptions, dispatchType: DispatchType, skipReRegistration: Bool = false, keepPointerToObjectInsteadOfWeakReference: Bool? = nil, handler: @escaping (_ change: [NSKeyValueChangeKey: Any]?) -> Void) -> ObservingId? {
 		let context = KVOContext(
 			object: object, storeAsPointer: keepPointerToObjectInsteadOfWeakReference ?? (object is NSManagedObject ? true : false),
