@@ -1,8 +1,8 @@
 import XCTest
-@testable import KVObserverTests
 
+import KVObserverTests
 
+var tests = [XCTestCaseEntry]()
+tests += KVObserverTests.__allTests()
 
-XCTMain([
-	testCase(KVObserverTests.allTests)
-])
+XCTMain(tests)
