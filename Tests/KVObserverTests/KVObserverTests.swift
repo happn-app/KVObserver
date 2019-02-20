@@ -26,6 +26,10 @@ class KVObserverTests: XCTestCase {
 	}
 	
 	func testObservedObjectDealloc() {
+		/* We check the process don’t crash, mostly. Also check the logs of the
+		 * test, verify the object is actually dealloc’d, etc.
+		 * Note: We could probably check more things automatically, but then again
+		 *       the moan point of the test was to check there are no crashes. */
 		_ = autoreleasepool{
 			AutoObservedObject().observableProperty += 1
 		}
