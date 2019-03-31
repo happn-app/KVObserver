@@ -26,9 +26,9 @@ class KVObserverTests: XCTestCase {
 		let observedObject = ObservedObject()
 		
 		var enteredObservedBlock = false
-		let observingId = kvObserver.observe(object: observedObject, keyPath: #keyPath(ObservedObject.observableProperty), kvoOptions: [], dispatchType: .direct){ _ in
+		let observingId = kvObserver.observe(object: observedObject, keyPath: #keyPath(ObservedObject.observableProperty), kvoOptions: [], dispatchType: .direct, handler: { _ in
 			enteredObservedBlock = true
-		}
+		})
 		
 		XCTAssertFalse(enteredObservedBlock)
 		observedObject.observableProperty += 1
