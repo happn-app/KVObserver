@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7B8BD02120026E8C009BE667"
-               BuildableName = "KVObserver-Tests.xctest"
-               BlueprintName = "KVObserver-Tests"
+               BuildableName = "KVObserverTests.xctest"
+               BlueprintName = "KVObserverTests"
                ReferencedContainer = "container:KVObserver.xcodeproj">
             </BuildableReference>
          </TestableReference>
