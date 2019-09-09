@@ -14,6 +14,8 @@
 		7BE819EE200E03A600DCCD10 /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819ED200E03A600DCCD10 /* ObservedObject.swift */; };
 		7BF0DDD5223327E700E99660 /* KVObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE819E8200DFBB200DCCD10 /* KVObserver.swift */; };
 		7BFB493B2082390400B0FAF2 /* AutoObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */; };
+		9437C3542326D62000E65D09 /* ObservingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437C3532326D62000E65D09 /* ObservingProtocol.swift */; };
+		9437C3552326D62000E65D09 /* ObservingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437C3532326D62000E65D09 /* ObservingProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 		7BE819ED200E03A600DCCD10 /* ObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObject.swift; sourceTree = "<group>"; };
 		7BF0DDDC223327E700E99660 /* KVObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFB493A2082390300B0FAF2 /* AutoObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoObservedObject.swift; sourceTree = "<group>"; };
+		9437C3532326D62000E65D09 /* ObservingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7BE819E8200DFBB200DCCD10 /* KVObserver.swift */,
+				9437C3532326D62000E65D09 /* ObservingProtocol.swift */,
 			);
 			path = KVObserver;
 			sourceTree = "<group>";
@@ -295,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BE819E9200DFBB200DCCD10 /* KVObserver.swift in Sources */,
+				9437C3542326D62000E65D09 /* ObservingProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BF0DDD5223327E700E99660 /* KVObserver.swift in Sources */,
+				9437C3552326D62000E65D09 /* ObservingProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
