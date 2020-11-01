@@ -45,7 +45,7 @@ class KVObserverTests: XCTestCase {
 		 * test, verify the object is actually dealloc’d, etc.
 		 * Note: We could probably check more things automatically, but then again
 		 *       the moan point of the test was to check there are no crashes. */
-		_ = autoreleasepool{
+		autoreleasepool{
 			AutoObservedObject().observableProperty += 1
 		}
 	}
@@ -71,8 +71,8 @@ class KVObserverTests: XCTestCase {
 		 * weak references in the KVObserver context in order for the KVO tear-
 		 * down to actually work. */
 		let context = CoreDataStack.createStack()
-		_ = autoreleasepool{
-			NSEntityDescription.insertNewObject(forEntityName: "AutoObservedNSManagedObject", into: context)
+		autoreleasepool{
+			_ = NSEntityDescription.insertNewObject(forEntityName: "AutoObservedNSManagedObject", into: context)
 		}
 	}
 	
