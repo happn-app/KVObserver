@@ -49,28 +49,25 @@ struct CoreDataStack {
 	
 }
 
-/* In this class (an NSManagedObject subclass), we do KVO of self. This a non-
- * trivial thing to do, and MUST be done following very specific guidelines.
- * However, because we're in a unit test and I don't know how to otherwise, I
- * did NOT follow all the rules to do the KVO. DO **NOT** use this class as an
- * example for KVO in an NSManagedObject! */
+/* In this class (an NSManagedObject subclass), we do KVO of self.
+ * This a non-trivial thing to do, and MUST be done following very specific guidelines.
+ * However, because we're in a unit test and I don't know how to otherwise, I did NOT follow all the rules to do the KVO.
+ * DO **NOT** use this class as an example for KVO in an NSManagedObject! */
 @objc(AutoObservedNSManagedObject)
 class AutoObservedNSManagedObject : NSManagedObject {
 	
 	@NSManaged var observableProperty: Int16
 	
 	/* ***************************
-	   MARK: - Core Data Overrides
-	   *************************** */
+	    MARK: - Core Data Overrides
+	    *************************** */
 	
 	public override func awakeFromFetch() {
-		/* This is also called when a fault is fulfilled (fulfilling a fault is a
-		 * fetch).
-		 * Always DO call super's implementation *first*.
-		 *
-		 * Context's changes processing is disabled in this method. However, this
-		 * means inverse relationship are not set automatically when relationships
-		 * are modified in this method. */
+		/* This is also called when a fault is fulfilled (fulfilling a fault is a fetch).
+		 * Always DO call super's implementation *first*.
+		 *
+		 * Context's changes processing is disabled in this method.
+		 * However, this means inverse relationship are not set automatically when relationships are modified in this method. */
 		super.awakeFromFetch()
 		print("Awake from fetch for an AutoObservedNSManagedObject with observer \(Unmanaged.passUnretained(kvObserver).toOpaque())")
 		
@@ -81,7 +78,7 @@ class AutoObservedNSManagedObject : NSManagedObject {
 	
 	public override func awakeFromInsert() {
 		/* Use primitive accessors to change properties values in this method.
-		* Always DO call super's implementation first. */
+		 * Always DO call super's implementation first. */
 		super.awakeFromInsert()
 		print("Awake from insert for an AutoObservedNSManagedObject with observer \(Unmanaged.passUnretained(kvObserver).toOpaque())")
 		
@@ -101,33 +98,32 @@ class AutoObservedNSManagedObject : NSManagedObject {
 	
 	deinit {
 		print("Deinit of an AutoObservedNSManagedObject with observer \(Unmanaged.passUnretained(kvObserver).toOpaque())")
-		/* There is nothing to do in deinit when observing an NSManagedObject the
-		 * correct way. However, for the test case we want to do, the observation
-		 * deregistering must be done here (it is where it happens in practice in
-		 * the specific case we're interested in). */
+		/* There is nothing to do in deinit when observing an NSManagedObject the correct way.
+		 * However, for the test case we want to do, the observation deregistering must be done here
+		 *  (it is where it happens in practice in the specific case we're interested in). */
 		if let id = observingId {kvObserver.stopObserving(id: id)}
 		observingId = nil
 		
-		/* This is wrong. On deinit the object is no longer in a context and Core
-		 * complains (rightfully TBH). However, it does force a KVO notif, which
-		 * is what we want. */
+		/* This is wrong.
+		 * On deinit the object is no longer in a context and Core complains (rightfully TBH).
+		 * However, it does force a KVO notif, which is what we want. */
 		observableProperty += 1
 	}
 	
 	/* *******************
-		MARK - KVO-Handling
-		******************* */
+	 MARK - KVO-Handling
+	 ******************* */
 	
 	private func processKVOChange(_ changes: [NSKeyValueChangeKey: Any]?) {
-		/* With our wrong way of observing, the assertion below becomes false
-		 * sometimes. In a real-world app, it can (should) be left uncommented. */
+		/* With our wrong way of observing, the assertion below becomes false sometimes.
+		 * In a real-world app, it can (should) be left uncommented. */
 //		assert(faultingState == 0)
 		print("KVO called in AutoObservedNSManagedObject")
 	}
 	
 	/* ***************
-		MARK: - Private
-		*************** */
+	   MARK: - Private
+	   *************** */
 	
 	private let kvObserver = KVObserver()
 	private var observingId: KVObserver.ObservingId?

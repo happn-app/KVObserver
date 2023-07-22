@@ -20,13 +20,14 @@ kvObserver.stopObserving(id: observingId)
 kvObserver.stopObservingEverything()
 ```
 
-There are many dispatch types available, all of them with their subtle differences. Usually you’ll
-need the default one: `.asyncOnMainQueueDirectInitial`. This will dispatch the inital KVO
-firing synchronously (if there is one, that is if the `.inital` KVO option has been set), and further
-KVO firing asynchronously on the main thread.
+There are many dispatch types available, all of them with their subtle differences.
+Usually you’ll need the default one: `.asyncOnMainQueueDirectInitial`. 
+This will dispatch the inital KVO firing synchronously (if there is one, that is if the `.inital` KVO option has been set),
+ and further KVO firing asynchronously on the main thread.
 
-Don’t hesitate to read the code to learn about the other dispatch types! All of the types are
-documented. There even are dispatch types specifically for CoreData.
+Don’t hesitate to read the code to learn about the other dispatch types!
+All of the types are documented.
+There even are dispatch types specifically for CoreData.
 
 ## TODO
 - [x] Re-registration skipping

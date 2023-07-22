@@ -20,5 +20,5 @@ import Foundation
 class ObservedObject : NSObject {
 	
 	@objc dynamic var observableProperty = 0
-
+	
 }
